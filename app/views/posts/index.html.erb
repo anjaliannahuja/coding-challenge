@@ -1,11 +1,15 @@
 <!-- View for showing all `Post` -->
 <h3><%= link_to 'New Post', new_post_path %></h3>
 <h1>All Posts</h1>
+<%= form_tag(posts_path, method: :get) do %>
+  <%= text_field_tag :term, params[:term] %>
+  <%= submit_tag 'Search', name: nil %>
+<% end %>
 <div> 
   <% @posts.each do |post| %>
     <div>
       <h1><%= post.title %></h1>
-      <p><%= post.body.truncate(150) %></p>
+      <p><%= post.body.truncate(100) %></p>
       <p><%= link_to "comments (#{post.comments.count})", post_path(post) %></p>
     </div>
   <% end %>

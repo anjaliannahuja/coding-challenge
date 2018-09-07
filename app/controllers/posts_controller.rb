@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
   def index
     # Return all `Post`
-    @posts = Post.all
+    @posts = Post.search(params[:term])
   end
 
   def show
@@ -34,6 +34,6 @@ class PostsController < ApplicationController
 
   private
     def post_params
-        params.require(:post).permit(:title, :body)
+        params.require(:post).permit(:title, :body, :term)
     end
 end
