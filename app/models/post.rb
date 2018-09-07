@@ -3,7 +3,7 @@ class Post < ApplicationRecord
 
   def self.search(term)
     if term
-      where('title LIKE ?', "%#{term}%")
+      where('title LIKE ? OR body LIKE ?', "%#{term}%", "%#{term}%")
     else
       all
     end
