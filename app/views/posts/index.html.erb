@@ -1,1 +1,12 @@
 <!-- View for showing all `Post` -->
+<h3><%= link_to 'New Post', new_post_path %></h3>
+<h1>All Posts</h1>
+<div> 
+  <% @posts.each do |post| %>
+    <div>
+      <h1><%= post.title %></h1>
+      <p><%= post.body %></p>
+      <p><%= link_to 'comments (#)', post_path(post) %></p>
+    </div>
+  <% end %>
+</div>
