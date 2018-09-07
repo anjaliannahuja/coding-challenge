@@ -5,7 +5,7 @@
   <% @posts.each do |post| %>
     <div>
       <h1><%= post.title %></h1>
-      <p><%= post.body %></p>
+      <p><%= post.body.truncate(150) %></p>
       <p><%= link_to "comments (#{post.comments.count})", post_path(post) %></p>
     </div>
   <% end %>
