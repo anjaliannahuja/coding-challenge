@@ -14,19 +14,6 @@
               data: { confirm: 'Are you sure you would like to delete this post?' } %>
 
 <h2>Comments</h2>
+<%= render 'comments/form' %>
 
-<%= form_with(model: [ @post, @post.comments.build ], local: true) do |form| %>
-  <p>
-    <%= form.label :comment %><br>
-    <%= form.text_area :comment %>
-  </p>
-  <p>
-    <%= form.submit %>
-  </p>
-<% end %>
-
-<% @post.comments.each do |comment| %>
-  <p>
-    <%= comment.comment %>
-  </p>
-<% end %>
+<%= render @post.comments %>
