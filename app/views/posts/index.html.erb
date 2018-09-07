@@ -1,16 +1,31 @@
 <!-- View for showing all `Post` -->
-<h3><%= link_to 'New Post', new_post_path %></h3>
-<h1>All Posts</h1>
+<div class="container">
+<h5><%= link_to 'New Post', new_post_path %></h5>
+<h3>All Posts</h3>
 <%= form_tag(posts_path, method: :get) do %>
-  <%= text_field_tag :term, params[:term] %>
-  <%= submit_tag 'Search', name: nil %>
+  <div class="row">
+    <div class="col s9">
+      <%= text_field_tag :term, params[:term] %>
+    </div>
+    <div class="col s3">
+      <%= submit_tag 'Search', name: nil %>
+    </div>
+  </div>
+
 <% end %>
-<div> 
+</div>
+<div class="container"> 
   <% @posts.each do |post| %>
-    <div>
-      <h1><%= post.title %></h1>
-      <p><%= post.body.truncate(100) %></p>
-      <p><%= link_to "comments (#{post.comments.count})", post_path(post) %></p>
+    <div class="row">
+      <div class="col s12 m6">
+        <div class="card blue lighten-1">
+          <div class="card-content white-text">
+            <span class="card-title"><%= post.title %></span>
+            <p><%= post.body.truncate(100) %></p>
+            <p class="card-action"><%= link_to "comments (#{post.comments.count})", post_path(post) %></p>
+          </div>
+        </div>
+      </div>
     </div>
   <% end %>
 </div>
