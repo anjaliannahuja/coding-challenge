@@ -1,5 +1,8 @@
 <!-- View for showing all `Post` -->
 <div class="container">
+
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
 <h5><%= link_to 'New Post', new_post_path %></h5>
 <h3>All Posts</h3>
 <%= form_tag(posts_path, method: :get) do %>
@@ -8,7 +11,7 @@
       <%= text_field_tag :term, params[:term] %>
     </div>
     <div class="col s3">
-      <%= submit_tag 'Search', name: nil %>
+    <a class="waves-effect waves-light btn"><i class="material-icons right">search</i><%= submit_tag 'Search', name: nil %></a>
     </div>
   </div>
 
