@@ -6,7 +6,7 @@
     <div>
       <h1><%= post.title %></h1>
       <p><%= post.body %></p>
-      <p><%= link_to 'comments (#)', post_path(post) %></p>
+      <p><%= link_to "comments (#{post.comments.count})", post_path(post) %></p>
     </div>
   <% end %>
 </div>
