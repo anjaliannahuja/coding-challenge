@@ -4,10 +4,6 @@ class PostsController < ApplicationController
     @posts = Post.search(params[:term])
   end
 
-  def show
-    @post = Post.find(params[:id])
-  end
-
   def new
     # Return view to create a new Post
     @post = Post.new
@@ -33,6 +29,7 @@ class PostsController < ApplicationController
   end
 
   private
+  # Add term to search through
     def post_params
         params.require(:post).permit(:title, :body, :term)
     end
