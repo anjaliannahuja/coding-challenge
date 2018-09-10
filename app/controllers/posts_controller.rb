@@ -9,6 +9,11 @@ class PostsController < ApplicationController
     @post = Post.new
   end
 
+  def show	
+    # Method to show a specific post
+    @post = Post.find(params[:id])	
+  end
+
   def create
     # Add a new `Post` to the database
     @post = Post.new(post_params)
