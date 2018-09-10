@@ -2,23 +2,26 @@
 <!-- See http://guides.rubyonrails.org/form_helpers.html#dealing-with-basic-forms for more information -->
 <div class="container">
 <h3>New Post</h3>
-
+<!-- New Post form -->
 <%= form_with scope: :post, url: posts_path, local: true do |form| %>
+  <!-- Create title field -->
   <p>
     <%= form.label :title %><br>
     <%= form.text_field :title %>
   </p>
- 
+  
+  <!-- Create body field -->
   <p>
     <%= form.label :body %><br>
     <%= form.text_area :body %>
   </p>
  
+  <!-- Submit button -->
   <p>
     <%= form.submit %>
   </p>
 <% end %>
 
-
+<!-- Link to back using posts path to show all posts -->
 <h4><%= link_to 'Back', posts_path %></h4>
 </div>

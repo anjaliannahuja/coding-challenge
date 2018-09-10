@@ -1,15 +1,18 @@
 <!-- View for showing all `Post` -->
 <div class="container">
 
-
+<!-- Access new post page based on routes path -->
 <h5><%= link_to 'New Post', new_post_path %></h5>
 <h3>All Posts</h3>
+<!-- Search all posts using post path -->
 <%= form_tag(posts_path, method: :get) do %>
   <div class="row">
     <div class="col s9">
+    <!-- Setting search params using the search term -->
       <%= text_field_tag :term, params[:term] %>
     </div>
     <div class="col s3">
+    <!-- Create search button and setup url -->
     <a class="waves-effect waves-light btn"><i class="material-icons right">search</i><%= submit_tag 'Search', name: nil %></a>
     </div>
   </div>
@@ -17,15 +20,20 @@
 <% end %>
 </div>
 <div class="container"> 
+<!-- Iterate through posts -->
   <% @posts.each do |post| %>
     <div class="row">
       <div class="col s12 m6">
         <div class="card blue lighten-1">
           <div class="card-content white-text">
-            <span class="card-title"><%= post.title %></span>
+            <!-- Display post title -->
+            <span class="card-title s7"><%= post.title %></span>
+            <!-- Create date in shorthand version for preview -->
+            <span class="s3"><%= I18n.localize post.created_at.to_date, format: :short %></span><br/>
+            <!-- Shorten the post body -->
             <p><%= post.body.truncate(100) %></p>
+            <!-- Link to specific post that shows comment count -->
             <p class="card-action"><%= link_to "comments (#{post.comments.count})", post_path(post) %></p>
-            <p class="card-action"><%= I18n.localize post.created_at.to_date, format: :short %></p>
           </div>
         </div>
       </div>
