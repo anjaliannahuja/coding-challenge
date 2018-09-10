@@ -25,6 +25,7 @@
             <span class="card-title"><%= post.title %></span>
             <p><%= post.body.truncate(100) %></p>
             <p class="card-action"><%= link_to "comments (#{post.comments.count})", post_path(post) %></p>
+            <p class="card-action"><%= I18n.localize post.created_at.to_date, format: :short %></p>
           </div>
         </div>
       </div>

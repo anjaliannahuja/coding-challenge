@@ -1,4 +1,9 @@
 class CommentsController < ApplicationController
+  def index
+    @post = Post.find(params[:post_id])
+    redirect_to post_path(@post)
+  end
+
   def create
     # Method to create a comment on specific post
     @post = Post.find(params[:post_id])
