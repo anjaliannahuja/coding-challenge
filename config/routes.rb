@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
+  #set homepage to index
   get 'posts/index'
   
+  # nest comments within posts resources
   resources :posts do
     resources :comments
   end
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  # set homepage to index
   root 'posts#index'
 end
